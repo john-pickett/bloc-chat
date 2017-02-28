@@ -6,14 +6,19 @@
                 requireBase: false
         });
         $stateProvider
-            .state('landing', {
+            .state('home', {
             url: '/',
-            controller: 'LandingCtrl as landing',
-            templateUrl: '/templates/landing.html'
+            controller: 'HomeCtrl as home',
+            templateUrl: '/templates/home.html'
+            })
+            .state('rooms', {
+            url: '/rooms',
+            controller: 'RoomCtrl as rooms',
+            templateUrl: '/templates/rooms.html'
         });
     }
     
     angular
-        .module('blocChat', ['ui.router'])
+        .module('blocChat', ['ui.router', 'firebase'])
         .config(config);
 })();
