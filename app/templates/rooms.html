@@ -1,7 +1,7 @@
 <section ng-controller="RoomCtrl">
-    <p> {{ rooms.title }}</p>
-    <div ng-repeat="room in rooms track by $index">
-        <p> {{ rooms.rooms.all[$index].room }} </p>
+    <h2> {{ rooms.title }} </h2>
+    <div ng-repeat="room in rooms.allRooms track by $index">
+        <p> {{ room.room }} </p>
     </div>
 
 </section>

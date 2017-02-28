@@ -1,9 +1,9 @@
 (function() {
     function RoomCtrl(Room) {
-        this.title = "Here's RoomCtrl!";
+        this.title = "Chat Rooms";
         
         // something magical goes here
-        this.rooms = Room;
+        this.allRooms = Room.all;
         
     }
     
