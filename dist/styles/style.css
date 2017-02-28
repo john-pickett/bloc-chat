@@ -1,0 +1,21 @@
+body {
+    padding: 0px 25px 0px 25px;
+    background-color: #fcfbe3;
+}
+
+.navbar {
+    background-color: aliceblue;
+    padding: 10px;
+}
+
+.headline {
+    text-align: center;
+}
+
+.room-list {
+    border: solid 3px darkblue;
+    border-radius: 10px;
+    padding: 10px;
+    width: 250px;
+    min-height: 500px;
+}

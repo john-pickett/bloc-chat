@@ -6,8 +6,11 @@
     <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
-    <h1>Here's the title of the page</h1>
-    <p>This is from /pages/index.html</p>
+    <nav class="navbar">
+        <a ui-sref="home">Home</a>
+    </nav>
+    
+    <h1 class="headline">The Super Awesome Angular Chat App</h1>
     
     <ui-view></ui-view>
     
@@ -35,6 +38,8 @@
       firebase.initializeApp(config);
     </script>
     <script src="/scripts/app.js"></script>
-    <script src="/scripts/controllers/LandingCtrl.js"></script>
+    <script src="/scripts/controllers/HomeCtrl.js"></script>
+    <script src="/scripts/controllers/RoomCtrl.js"></script>
+    <script src="/scripts/services/Room.js"></script>
 </body>
 </html>
