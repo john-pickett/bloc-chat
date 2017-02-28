@@ -1,5 +1,5 @@
 (function (){
-    function ModalCtrl($scope, $uibModal) {
+    function ModalCtrl($scope, $uibModal, Room) {
 
         $scope.newChatRoom = function() {
             
@@ -11,17 +11,21 @@
                     };
                     
                     $scope.create = function() {
-                        modalInstance.close();
+                        modalInstance.close($scope.roomName);
                     };
                 },
-                size: 'sm'
+                size: 'md',
+            });
+            
+            modalInstance.result.then(function(data) {
+                Room.addRoom(data);
             });
         };
     }
     
     angular
         .module('blocChat')
-        .controller('ModalCtrl', ['$scope', '$uibModal', ModalCtrl]);
+        .controller('ModalCtrl', ['$scope', '$uibModal', 'Room', ModalCtrl]);
 })();
 
 
