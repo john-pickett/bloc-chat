@@ -1,18 +1,19 @@
 (function() {
     function RoomCtrl($scope, Room, Message) {
-        this.title = "Chat Rooms";
-        this.allRooms = Room.all;
-        this.messages = null;
+        var chatapp = this;
+        chatapp.title = "Chat Rooms";
+        chatapp.allRooms = Room.all;
+//        chatapp.currentRoom = "Hey";
+//        chatapp.messages = null;
         
         //this.allMessages = Message.all;
         
-        this.byRoom = Message.getByRoomId;
         
         $scope.selectRoom = function(room){
-            var currentRoom = room;
-            console.log(currentRoom.$id);
-            //messages = Message.getByRoomId(currentRoom.$id);
-            messages = "Hey";
+            console.log(this);
+            chatapp.currentRoom = room;
+            console.log(chatapp.currentRoom.name);
+            chatapp.messages = Message.getByRoomId(chatapp.currentRoom.$id);
         };
     
     }
