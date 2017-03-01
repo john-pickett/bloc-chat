@@ -11,10 +11,6 @@
                 rooms.$indexFor(id); // returns location in the array
             });
         };
-    
-//        var getMessagesFunc = function(id){
-//            
-//        };
         
         // return 
          return {
