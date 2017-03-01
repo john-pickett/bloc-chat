@@ -11,16 +11,17 @@
                     };
                     
                     $scope.create = function() {
+                        //Room.addRoom($scope.roomName);
+                        
+                        console.log($scope.roomName);
                         modalInstance.close($scope.roomName);
+                        
                     };
                 },
                 size: 'md',
             });
-            
-            modalInstance.result.then(function(data) {
-                Room.addRoom(data);
-            });
-        };
+        
+        }
     }
     
     angular
