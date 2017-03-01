@@ -15,11 +15,17 @@
 
 <section class="chat-section" ng-controller="RoomCtrl">
     <h1> {{ rooms.allRooms.name }} </h1>
-        <p> {{ rooms.allMessages }} </p>
+<!--        <p> {{ rooms.allMessages }} </p>-->
     <div class="container" ng-repeat="message in rooms.allMessages">
-        
-        <p> {{ message.username }} </p>
-        <p> {{ rooms.allMessages[$index].sent }} </p>
-        <p> {{ rooms.allMessages[$index].content }} </p>
+        <table>
+            <tr><th>User</th><th>Time Sent</th><th>Message</th></tr>
+             
+                <tr>
+                    <td>{{ message.username }}</td>
+                    <td>{{ rooms.allMessages[$index].sent }}</td>
+                    <td>{{ rooms.allMessages[$index].content }}</td>
+                </tr>
+            
+        </table>
     </div>
 </section>
