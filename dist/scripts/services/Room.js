@@ -5,7 +5,7 @@
 
         
         var addRoomFunc = function(name) {
-            rooms.$add({ name: "'" + name + "'" }).then(function(ref) {
+            rooms.$add({ name: name }).then(function(ref) {
                 var id = ref.key;
                 console.log("added record with id " + id);
                 rooms.$indexFor(id); // returns location in the array
