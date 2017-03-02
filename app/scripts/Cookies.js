@@ -13,12 +13,6 @@
         var modalInstance = $uibModal.open({
             templateUrl: '/templates/user-modal.html',
             controller: function($scope, $uibModalInstance) {
-                // this.newRoom = {};
-                $scope.cancel = function() {
-                    // modalInstance.dismiss('Cancel');
-                    $uibModalInstance.dismiss("Cancel");
-                };
-
                 $scope.create = function() {
                       // need something else here for real function
                     // modalInstance.close($scope.name);
@@ -33,6 +27,7 @@
         });
 
       } // end of if statement
+
     }
 
 

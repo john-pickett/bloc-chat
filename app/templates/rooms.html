@@ -10,7 +10,14 @@
         <div ng-repeat="room in rooms.allRooms" ng-controller="RoomCtrl">
             <p> <a ng-click="rooms.selectRoom(room)">{{ room.name }} </a> </p>
         </div>
-     </div>   
+     </div>
+
+     <div class="current-user" ng-controller="RoomCtrl">
+       <p><strong>Current User: </strong></p>
+       <p> {{ rooms.currentUser }} </p>
+       <button class="current-user-click" ng-click="rooms.newUser()">Set New User</button>
+
+     </div>
 </section>
 
 <section class="chat-section">
@@ -19,13 +26,13 @@
     <div class="container" ng-repeat="message in rooms.messages">
         <table>
             <tr><th>User</th><th>Time Sent</th><th>Message</th></tr>
-             
+
                 <tr>
                     <td>{{ message.username }}</td>
                     <td>{{ message.sent }}</td>
                     <td>{{ message.content }}</td>
                 </tr>
-            
+
         </table>
     </div>
 </section>

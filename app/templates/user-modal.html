@@ -1,11 +1,11 @@
 <h2 class="text-center">Set Username</h2>
 
-<div class="chat-room-form">
-    <input type="text" ng-model="newUser" placeholder="What's your name?">
-</div>
+<form name="userform">
+  <div class="chat-room-form">
+      <input type="text" ng-model="newUser" placeholder="What's your name?" autofocus required>
+  </div>
+</form>
 
 <button ng-click="create()">Set Username</button>
-<!-- remove cancel when live -->
-<button ng-click="cancel()">Nah, Forget It</button>
     <div class="empty"></div>
 </div>
