@@ -1,15 +1,31 @@
-<section class="room-list" ng-controller="RoomCtrl">
-    <h2> {{ rooms.title }} </h2>
-    
-    <div ng-controller="ModalCtrl">
-        <button class="new-room-click" ng-click="this.newChatRoom()">Create New Chat Room</button>
-    </div>
-    
-    <div ng-repeat="room in rooms.allRooms">
-        <p> {{ room.name }} </p>
-    </div>
 
+<section class="room-list">
+    <div class="container">
+        <h2> {{ rooms.title }} </h2>
+
+        <div ng-controller="ModalCtrl">
+            <button class="new-room-click" ng-click="this.newChatRoom()">Create New Chat Room</button>
+        </div>
+
+        <div ng-repeat="room in rooms.allRooms" ng-controller="RoomCtrl">
+            <p> <a ng-click="rooms.selectRoom(room)">{{ room.name }} </a> </p>
+        </div>
+     </div>   
 </section>
+
 <section class="chat-section">
-    <p>Here is the chat section</p>
+    <h1> {{ rooms.currentRoom.name }} </h1>
+
+    <div class="container" ng-repeat="message in rooms.messages">
+        <table>
+            <tr><th>User</th><th>Time Sent</th><th>Message</th></tr>
+             
+                <tr>
+                    <td>{{ message.username }}</td>
+                    <td>{{ message.sent }}</td>
+                    <td>{{ message.content }}</td>
+                </tr>
+            
+        </table>
+    </div>
 </section>

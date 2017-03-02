@@ -11,8 +11,6 @@
                 rooms.$indexFor(id); // returns location in the array
             });
         };
-    
-        
         
         // return 
          return {
