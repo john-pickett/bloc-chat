@@ -12,16 +12,22 @@
             chatapp.messages = Message.getByRoomId(chatapp.currentRoom.$id);
         };
 
-        chatapp.currentUser = $cookies.get('blocChatCurrentUser');
+        var current = function() {
+          return $cookies.get('blocChatCurrentUser');
+        };
+
+        chatapp.currentUser = current();
 
         chatapp.newUser = function(){
           var modalInstance = $uibModal.open({
               templateUrl: '/templates/user-modal.html',
               controller: function($scope, $uibModalInstance) {
                   $scope.create = function() {
-                        // need something else here for real function
-                      // modalInstance.close($scope.name);
+                    if ($scope.newUser !== undefined && $scope.newUser != ""){
                       $uibModalInstance.close($scope.newUser);
+                    } else {
+                      alert("Error: Please provide a valid username");
+                    }
                   };
               },
               size: 'md',
@@ -30,8 +36,12 @@
           modalInstance.result.then(function(data){
             $cookies.put('blocChatCurrentUser', data);
           });
-          chatapp.currentUser = $cookies.get('blocChatCurrentUser');
         };
+
+        // this function works to reset the name, but it doesn't update in the view
+        chatapp.resetUser = function(){
+          $cookies.put('blocChatCurrentUser', "");
+        }
 
 
     } // end of RoomCtrl

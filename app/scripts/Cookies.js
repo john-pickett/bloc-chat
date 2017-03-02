@@ -14,9 +14,11 @@
             templateUrl: '/templates/user-modal.html',
             controller: function($scope, $uibModalInstance) {
                 $scope.create = function() {
-                      // need something else here for real function
-                    // modalInstance.close($scope.name);
-                    $uibModalInstance.close($scope.newUser);
+                    if ($scope.newUser !== undefined && $scope.newUser != ""){
+                      $uibModalInstance.close($scope.newUser);
+                    } else {
+                      alert("Error: Please provide a valid username");
+                    }
                 };
             },
             size: 'md',
