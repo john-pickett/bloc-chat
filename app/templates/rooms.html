@@ -24,11 +24,11 @@
 <section class="chat-section">
     <h1> {{ rooms.currentRoom.name }} </h1>
 
-    <div class="container" ng-repeat="message in rooms.messages">
+    <div class="container">
         <table>
             <tr><th>User</th><th>Time Sent</th><th>Message</th></tr>
 
-                <tr>
+                <tr ng-repeat="message in rooms.messages">
                     <td>{{ message.username }}</td>
                     <td>{{ message.sent }}</td>
                     <td>{{ message.content }}</td>

@@ -34,12 +34,14 @@
           });
 
           modalInstance.result.then(function(data){
+            chatapp.currentUser = data;
             $cookies.put('blocChatCurrentUser', data);
           });
         };
 
         // this function works to reset the name, but it doesn't update in the view
         chatapp.resetUser = function(){
+          chatapp.currentUser = null;
           $cookies.put('blocChatCurrentUser', "");
         }
 
