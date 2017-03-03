@@ -5,7 +5,14 @@
         chatapp.allRooms = Room.all;
         chatapp.currentRoom = null;
         chatapp.messages = null;
-        chatapp.currentTime = new Date();
+        chatapp.currentTime = null;
+
+        var getTime = function() {
+          var today = new Date();
+          var date = (today.getMonth()+1) + "/" + today.getDate() + "/" + today.getFullYear();
+          var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+          return time + " " + date;
+        };
 
         chatapp.selectRoom = function(room){
             chatapp.currentRoom = room;
@@ -46,6 +53,7 @@
         };
 
         chatapp.sendMessage = function(){
+          chatapp.currentTime = getTime();
           // (newMessage, roomId, sent, user)
           Message.send($scope.newMessage, chatapp.currentRoom.$id, chatapp.currentTime , chatapp.currentUser );
         };
