@@ -1,10 +1,11 @@
 (function() {
-    function RoomCtrl(Room, Message, $cookies, $uibModal) {
+    function RoomCtrl($scope, Room, Message, $cookies, $uibModal) {
         var chatapp = this;
         chatapp.title = "Chat Rooms";
         chatapp.allRooms = Room.all;
         chatapp.currentRoom = null;
         chatapp.messages = null;
+        chatapp.currentTime = new Date();
 
         chatapp.selectRoom = function(room){
             chatapp.currentRoom = room;
@@ -42,11 +43,16 @@
         chatapp.resetUser = function(){
           chatapp.currentUser = null;
           $cookies.put('blocChatCurrentUser', "");
-        }
+        };
+
+        chatapp.sendMessage = function(){
+          // (newMessage, roomId, sent, user)
+          Message.send($scope.newMessage, chatapp.currentRoom.$id, chatapp.currentTime , chatapp.currentUser );
+        };
 
     } // end of RoomCtrl
 
     angular
         .module('blocChat')
-        .controller('RoomCtrl', ['Room', 'Message', '$cookies', '$uibModal', RoomCtrl]);
+        .controller('RoomCtrl', ['$scope', 'Room', 'Message', '$cookies', '$uibModal', RoomCtrl]);
 })();

@@ -1,11 +1,6 @@
 (function() {
   function BlocChatCookies($cookies, $uibModal){
     var currentUser = $cookies.get('blocChatCurrentUser');
-    if (currentUser) {
-      console.log(currentUser);
-    } else {
-      console.log("No user set");
-    }
     if (!currentUser || currentUser === "") {
       // toggle modal to set username
       // $scope.newChatRoom = function() {
