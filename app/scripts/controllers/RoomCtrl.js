@@ -4,7 +4,8 @@
         chatapp.title = "Chat Rooms";
         chatapp.allRooms = Room.all;
         chatapp.currentRoom = null;
-        chatapp.messages = null;
+        // chatapp.currentRoom = Room.general;
+        // chatapp.messages = Message.getByRoomId(chatapp.currentRoom.$id);
         chatapp.hello = "Hello";
 
         chatapp.selectRoom = function(room){

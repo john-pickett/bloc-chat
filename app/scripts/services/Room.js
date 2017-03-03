@@ -3,7 +3,10 @@
         var ref = firebase.database().ref().child('rooms');
         var rooms = $firebaseArray(ref);
 
-        
+        var genRoom = function() {
+          return $firebaseArray(ref.orderByChild('name').equalTo('General'));
+        };
+
         var addRoomFunc = function(name) {
             rooms.$add({ name: name }).then(function(ref) {
                 var id = ref.key;
@@ -11,15 +14,16 @@
                 rooms.$indexFor(id); // returns location in the array
             });
         };
-        
-        // return 
+
+        // return
          return {
              all: rooms,
-             addRoom: addRoomFunc
+             addRoom: addRoomFunc,
+             general: genRoom
          };
-        
+
     }
-    
+
     angular
         .module('blocChat')
         .factory('Room', ['$firebaseArray', Room]);
