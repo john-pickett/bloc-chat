@@ -4,9 +4,7 @@
         chatapp.title = "Chat Rooms";
         chatapp.allRooms = Room.all;
         chatapp.currentRoom = null;
-        // chatapp.currentRoom = Room.general;
-        // chatapp.messages = Message.getByRoomId(chatapp.currentRoom.$id);
-        chatapp.hello = "Hello";
+        chatapp.messages = null;
 
         chatapp.selectRoom = function(room){
             chatapp.currentRoom = room;
@@ -40,12 +38,11 @@
           });
         };
 
-        // this function works to reset the name, but it doesn't update in the view
+        // reset the username to ""
         chatapp.resetUser = function(){
           chatapp.currentUser = null;
           $cookies.put('blocChatCurrentUser', "");
         }
-
 
     } // end of RoomCtrl
 
