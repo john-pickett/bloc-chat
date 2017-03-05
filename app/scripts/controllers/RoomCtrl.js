@@ -1,10 +1,14 @@
 (function() {
-    function RoomCtrl(Room, Message, $cookies, $uibModal) {
+    function RoomCtrl($scope, Room, Message, $cookies, $uibModal) {
         var chatapp = this;
         chatapp.title = "Chat Rooms";
         chatapp.allRooms = Room.all;
-        chatapp.currentRoom = null;
-        chatapp.messages = null;
+        chatapp.currentRoom = {
+                                name: "General",
+                                $id: "-KeBX4d5mZIcI7w1cF7V"
+                              };
+        chatapp.messages = Message.getByRoomId("-KeBX4d5mZIcI7w1cF7V");
+        chatapp.currentTime = null;
 
         chatapp.selectRoom = function(room){
             chatapp.currentRoom = room;
@@ -42,11 +46,31 @@
         chatapp.resetUser = function(){
           chatapp.currentUser = null;
           $cookies.put('blocChatCurrentUser', "");
+        };
+
+        chatapp.sendMessage = function(){
+          chatapp.currentTime = getTime();
+          // (newMessage, roomId, sent, user)
+          Message.send($scope.newMessage, chatapp.currentRoom.$id, chatapp.currentTime , chatapp.currentUser );
+          $scope.newMessage = null;
+        };
+
+        var getTime = function() {
+          var today = new Date();
+          var date = (today.getMonth()+1) + "/" + today.getDate() + "/" + today.getFullYear();
+          var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+          return time + " " + date;
+        };
+
+        chatapp.logger = function(message) {
+          console.log(message);
         }
 
     } // end of RoomCtrl
 
+
     angular
         .module('blocChat')
-        .controller('RoomCtrl', ['Room', 'Message', '$cookies', '$uibModal', RoomCtrl]);
+        .controller('RoomCtrl', ['$scope', 'Room', 'Message', '$cookies', '$uibModal', RoomCtrl]);
+
 })();

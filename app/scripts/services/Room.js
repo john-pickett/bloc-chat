@@ -7,7 +7,7 @@
           return $firebaseArray(ref.orderByChild('name').equalTo('General'));
         };
 
-        var addRoomFunc = function(name) {
+        var addRoom = function(name) {
             rooms.$add({ name: name }).then(function(ref) {
                 var id = ref.key;
                 console.log("added record with id " + id);
@@ -18,7 +18,7 @@
         // return
          return {
              all: rooms,
-             addRoom: addRoomFunc,
+             addRoom: addRoom,
              general: genRoom
          };
 

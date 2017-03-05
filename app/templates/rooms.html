@@ -23,6 +23,7 @@
 
 <section class="chat-section">
     <h1> {{ rooms.currentRoom.name }} </h1>
+    <!-- <p> {{ rooms.allRooms }} </p> -->
 
     <div class="container">
         <table>
@@ -35,5 +36,9 @@
                 </tr>
 
         </table>
+        <form>
+          <input type="text" ng-model="newMessage" size="92" placeholder="Send message... ">
+          <button ng-click="rooms.sendMessage()">Send</button>
+        </form>
     </div>
 </section>
